@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Env secrets
+.env
+server/.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large images (frontend only - not needed for backend)
+public/showcase/*.webp
+public/showcase/*.jpg
+public/showcase/*.jpeg
+public/showcase/*.png
+public/showcase/*.mp4
+public/showcase/*.mov
