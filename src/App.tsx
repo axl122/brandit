@@ -167,14 +167,9 @@ function App() {
 
   useEffect(() => {
     if (!consultOpen) return
-    // Only close on scroll/wheel events, not touchmove (breaks mobile inputs)
-    const close = () => setConsultOpen(false)
-    window.addEventListener('scroll', close, { passive: true })
-    window.addEventListener('wheel', close, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', close)
-      window.removeEventListener('wheel', close)
-    }
+    // Don't close on scroll - mobile browser auto-scrolls to inputs
+    // Modal closes only via X button or clicking outside
+    return () => {}
   }, [consultOpen])
 
   useEffect(() => {
@@ -214,7 +209,7 @@ function App() {
         </Routes>
       </AnimatePresence>
       {location.pathname !== '/' ? <BottomNav /> : null}
-      {location.pathname !== '/' ? <CookieConsent /> : null}
+      <CookieConsent />
       {location.pathname !== '/' ? <OfflineBanner /> : null}
       {location.pathname !== '/' ? <WhatsAppWidget /> : null}
       <ConsultationModal open={consultOpen} onClose={() => setConsultOpen(false)} />
